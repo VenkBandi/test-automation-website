@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.11.5 on darwin)" generated="2024-04-19T15:03:06.798664" rpa="false" schemaversion="5">
+<suite id="s1" name="Test2" source="/Users/venkatabandi/PycharmProjects/testing/tests/test2.robot">
+<test id="s1-t1" name="Verify Successful addition of new computer" line="17">
+<kw name="Browser setup">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-04-19T15:03:07.081838" level="INFO">Opening browser 'Chrome' to base url 'http://computer-database.gatling.io/'.</msg>
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-04-19T15:03:07.081568" elapsed="2.984559"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-04-19T15:03:10.067019" elapsed="0.391889"/>
+</kw>
+<status status="PASS" start="2024-04-19T15:03:07.080555" elapsed="3.378570"/>
+</kw>
+<kw name="Check hompage elements and click to add computer">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id:main</arg>
+<arg>timeout=05</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-04-19T15:03:10.460279" elapsed="0.022519"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-04-19T15:03:10.483290" level="INFO">Clicking element 'id=add'.</msg>
+<arg>id=add</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-19T15:03:10.483038" elapsed="0.337000"/>
+</kw>
+<status status="PASS" start="2024-04-19T15:03:10.459665" elapsed="0.360523"/>
+</kw>
+<kw name="Check for page elements in the form">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-04-19T15:03:10.834340" level="INFO">Current page contains text 'Computer name'.</msg>
+<arg>Computer name</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-04-19T15:03:10.820855" elapsed="0.013608"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-04-19T15:03:10.847911" level="INFO">Current page contains text 'Introduced'.</msg>
+<arg>Introduced</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-04-19T15:03:10.834666" elapsed="0.013355"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-04-19T15:03:10.860878" level="INFO">Current page contains text 'Discontinued'.</msg>
+<arg>Discontinued</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-04-19T15:03:10.848237" elapsed="0.012751"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-04-19T15:03:10.873560" level="INFO">Current page contains text 'Company'.</msg>
+<arg>Company</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-04-19T15:03:10.861208" elapsed="0.012451"/>
+</kw>
+<status status="PASS" start="2024-04-19T15:03:10.820488" elapsed="0.053282"/>
+</kw>
+<kw name="Check The Presence of Sony in List">
+<kw name="Select Company">
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2024-04-19T15:03:10.874984" level="INFO">Selecting options from selection list 'id=company' by label Sony.</msg>
+<arg>id=company</arg>
+<arg>${company_name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2024-04-19T15:03:10.874739" elapsed="0.072686"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-04-19T15:03:10.960030" level="INFO">Current page contains text 'Sony'.</msg>
+<arg>${Company_Name}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-04-19T15:03:10.948172" elapsed="0.011954"/>
+</kw>
+<msg time="2024-04-19T15:03:10.960288" level="INFO">${Status} = True</msg>
+<var>${Status}</var>
+<arg>Page Should Contain</arg>
+<arg>${Company_Name}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-04-19T15:03:10.947784" elapsed="0.012536"/>
+</kw>
+<return>
+<value>${Status}</value>
+<status status="PASS" start="2024-04-19T15:03:10.960420" elapsed="0.000134"/>
+</return>
+<msg time="2024-04-19T15:03:10.960745" level="INFO">${Status} = True</msg>
+<var>${Status}</var>
+<arg>${Company_Name}</arg>
+<status status="PASS" start="2024-04-19T15:03:10.874374" elapsed="0.086401"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-04-19T15:03:10.961446" level="INFO">Company found</msg>
+<arg>Company found</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-04-19T15:03:10.961310" elapsed="0.000220"/>
+</kw>
+<arg>'${status}' == 'True'</arg>
+<arg>Log</arg>
+<arg>Company found</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-04-19T15:03:10.960953" elapsed="0.000674"/>
+</kw>
+<status status="PASS" start="2024-04-19T15:03:10.874020" elapsed="0.087691"/>
+</kw>
+<kw name="Without computer name">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-04-19T15:03:10.962908" level="INFO">Typing text '' into text field 'id=name'.</msg>
+<arg>id=name</arg>
+<arg>${EMPTY}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-19T15:03:10.962219" elapsed="0.140297"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-04-19T15:03:11.102980" level="INFO">Clicking button 'css=input.btn.primary[value="Create this computer"]'.</msg>
+<arg>css=input.btn.primary[value="Create this computer"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-19T15:03:11.102764" elapsed="0.359341"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-04-19T15:03:11.477536" level="INFO">Current page contains text 'Failed to refine type : Predicate isEmpty() did not fail.'.</msg>
+<arg>${EXPECTED_MESSAGE_1}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-04-19T15:03:11.462332" elapsed="0.015301"/>
+</kw>
+<status status="PASS" start="2024-04-19T15:03:10.961940" elapsed="0.515803"/>
+</kw>
+<kw name="With Computer Name Random Name">
+<kw name="Get Name" owner="resource">
+<msg time="2024-04-19T15:03:11.478606" level="INFO">${NAME} = VrsmKnWTRk</msg>
+<var>${NAME}</var>
+<arg>10</arg>
+<status status="PASS" start="2024-04-19T15:03:11.478395" elapsed="0.000245"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-04-19T15:03:11.478996" level="INFO">Typing text 'VrsmKnWTRk' into text field 'id=name'.</msg>
+<arg>id=name</arg>
+<arg>${NAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-19T15:03:11.478780" elapsed="0.166015"/>
+</kw>
+<kw name="Get Date" owner="resource">
+<msg time="2024-04-19T15:03:11.645230" level="INFO">${introduced_date} = 2024-04-19</msg>
+<var>${introduced_date}</var>
+<arg>0</arg>
+<status status="PASS" start="2024-04-19T15:03:11.645016" elapsed="0.000248"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-04-19T15:03:11.645736" level="INFO">Typing text '2024-04-19' into text field 'id=introduced'.</msg>
+<arg>id=introduced</arg>
+<arg>${introduced_date}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-19T15:03:11.645485" elapsed="0.080721"/>
+</kw>
+<kw name="Get Date" owner="resource">
+<msg time="2024-04-19T15:03:11.726615" level="INFO">${discontinued_date} = 2024-04-26</msg>
+<var>${discontinued_date}</var>
+<arg>7</arg>
+<status status="PASS" start="2024-04-19T15:03:11.726411" elapsed="0.000238"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-04-19T15:03:11.727021" level="INFO">Typing text '2024-04-26' into text field 'id=discontinued'.</msg>
+<arg>id=discontinued</arg>
+<arg>${discontinued_date}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-19T15:03:11.726791" elapsed="0.073781"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2024-04-19T15:03:11.801158" level="INFO">Selecting options from selection list 'company' by label Sony.</msg>
+<arg>company</arg>
+<arg>${Company_Name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2024-04-19T15:03:11.800917" elapsed="0.071676"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-04-19T15:03:11.872980" level="INFO">Clicking button 'class=btn.primary'.</msg>
+<arg>class=btn.primary</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-04-19T15:03:11.872790" elapsed="0.510902"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-04-19T15:03:14.384517" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-04-19T15:03:12.383886" elapsed="2.000750"/>
+</kw>
+<return>
+<value>${NAME}</value>
+<status status="PASS" start="2024-04-19T15:03:14.384742" elapsed="0.000068"/>
+</return>
+<msg time="2024-04-19T15:03:14.385001" level="INFO">${NAME} = VrsmKnWTRk</msg>
+<var>${NAME}</var>
+<status status="PASS" start="2024-04-19T15:03:11.478081" elapsed="2.906950"/>
+</kw>
+<kw name="Check Successful Message">
+<kw name="Getm" owner="resource">
+<msg time="2024-04-19T15:03:14.385837" level="INFO">${Expected_Message_2} = Done ! Computer VrsmKnWTRk has been created</msg>
+<var>${Expected_Message_2}</var>
+<arg>${NAME}</arg>
+<status status="PASS" start="2024-04-19T15:03:14.385665" elapsed="0.000202"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2024-04-19T15:03:14.396159" level="INFO">Current page contains element '//*[@id="main"]/div[1]'.</msg>
+<arg>//*[@id="main"]/div[1]</arg>
+<arg>${Expected_Message_2}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2024-04-19T15:03:14.386170" elapsed="0.010069"/>
+</kw>
+<msg time="2024-04-19T15:03:14.396382" level="INFO">${Status} = True</msg>
+<var>${Status}</var>
+<arg>Page should contain element</arg>
+<arg>//*[@id="main"]/div[1]</arg>
+<arg>${Expected_Message_2}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2024-04-19T15:03:14.386009" elapsed="0.010397"/>
+</kw>
+<return>
+<value>${Status}</value>
+<status status="PASS" start="2024-04-19T15:03:14.396476" elapsed="0.000059"/>
+</return>
+<msg time="2024-04-19T15:03:14.396743" level="INFO">${Status} = True</msg>
+<var>${Status}</var>
+<arg>${NAME}</arg>
+<status status="PASS" start="2024-04-19T15:03:14.385331" elapsed="0.011442"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-04-19T15:03:14.397025" elapsed="0.169363"/>
+</kw>
+<doc>This test case adds a new computer to the data base</doc>
+<tag>InsertionTesting</tag>
+<status status="PASS" start="2024-04-19T15:03:07.079873" elapsed="7.486987"/>
+</test>
+<doc>Add a computer to data base</doc>
+<status status="PASS" start="2024-04-19T15:03:06.800177" elapsed="7.767557"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">InsertionTesting</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Test2">Test2</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
